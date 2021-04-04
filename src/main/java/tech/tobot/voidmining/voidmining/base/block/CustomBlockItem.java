@@ -13,16 +13,15 @@ public class CustomBlockItem <B extends CustomBlock> extends BlockItem {
     super(block, settings);
     
     // callable inventory tick consumer from the block
-    this.inventoryTickConsumer = block.getInventoryTickConsumer();
+    inventoryTickConsumer = block.getInventoryTickConsumer();
   }
   
   @Override
   public void inventoryTick(
       final ItemStack stack, final World worldIn, final Entity entityIn, final int itemSlot, final boolean isSelected
   ) {
-    if(this.inventoryTickConsumer != null) {
-      this.inventoryTickConsumer
-          .accept(stack, worldIn, entityIn, itemSlot, isSelected);
+    if(inventoryTickConsumer != null) {
+      inventoryTickConsumer.accept(stack, worldIn, entityIn, itemSlot, isSelected);
     }
   }
 }

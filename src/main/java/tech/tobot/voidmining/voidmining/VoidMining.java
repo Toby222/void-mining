@@ -10,14 +10,14 @@ import tech.tobot.voidmining.voidmining.handler.LogHandler;
 
 public class VoidMining implements ModInitializer {
   public static final  Boolean    DEBUG      = true;
-  private static final String     MOD_ID     = "voidmining";
+  private static final String     MOD_ID     = "void_mining";
+  public static final  LogHandler LOG        = new LogHandler(VoidMining.MOD_ID);
   public static final  ItemGroup  ITEM_GROUP = new ItemGroup(0, VoidMining.identifier("creative_tab").toString()) {
     @Override
     public ItemStack createIcon() {
       return new ItemStack(Items.BARRIER);
     }
   };
-  public static final  LogHandler LOG        = new LogHandler(VoidMining.MOD_ID);
   private static       boolean    hasRun     = false;
   
   public static Identifier identifier(final String id) {
@@ -26,7 +26,9 @@ public class VoidMining implements ModInitializer {
   
   @Override
   public void onInitialize() {
-    if(!VoidMining.hasRun) VoidMining.hasRun = true;
+    if(!VoidMining.hasRun) {
+      VoidMining.hasRun = true;
+    }
     VMBlocks.init();
   }
 }
