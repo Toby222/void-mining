@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "void-mining",
+  "version": "${version}",
+  "name": "Void Mining",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "unlicense",
+  "icon": "assets/void-mining/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "tech.tobot.voidmining.voidmining.client.VoidMiningClient"
+    ],
+    "main": [
+      "tech.tobot.voidmining.voidmining.VoidMining"
+    ]
+  },
+  "mixins": [
+    "void-mining.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
